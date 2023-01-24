@@ -92,7 +92,7 @@ nx.draw_spring(g,
               )
 
 
-# # Twitter Follower Netzwerk von Bundestagsabgeordneten 2019
+# ## Twitter Follower Netzwerk von Bundestagsabgeordneten 2019
 # 
 # https://github.com/WZBSocialScienceCenter/mdb-twitter-network/
 # 

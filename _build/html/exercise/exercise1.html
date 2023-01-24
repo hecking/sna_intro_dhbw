@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Community Detection" href="../community_detection/community_detection.html" />
+    <link rel="prev" title="Generalisierte Zentralitätsmaße - Eigenvector centrality &amp; Co." href="../centrality_measures/generalised_centralities.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../introduction/was_ist_sna.html">
    Was ist Soziale Netzwerkanalyse?
@@ -175,6 +177,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Übung: Erste Schritte mit NetworkX und Zentralitäten
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../community_detection/community_detection.html">
@@ -404,29 +411,22 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Übung: Erste Schritte mit NetworkX und Zentralitäten
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zacharies-karate-club">
+   Zacharies Karate Club
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zacharies-karate-club">
-     Zacharies Karate Club
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zentralitaten">
-     Zentralitäten
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#netzwerkvisualisierung">
-     Netzwerkvisualisierung
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zentralitaten">
+   Zentralitäten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netzwerkvisualisierung">
+   Netzwerkvisualisierung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#twitter-follower-netzwerk-von-bundestagsabgeordneten-2019">
    Twitter Follower Netzwerk von Bundestagsabgeordneten 2019
   </a>
@@ -450,29 +450,22 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Übung: Erste Schritte mit NetworkX und Zentralitäten
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zacharies-karate-club">
+   Zacharies Karate Club
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zacharies-karate-club">
-     Zacharies Karate Club
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zentralitaten">
-     Zentralitäten
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#netzwerkvisualisierung">
-     Netzwerkvisualisierung
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zentralitaten">
+   Zentralitäten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netzwerkvisualisierung">
+   Netzwerkvisualisierung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#twitter-follower-netzwerk-von-bundestagsabgeordneten-2019">
    Twitter Follower Netzwerk von Bundestagsabgeordneten 2019
   </a>
@@ -597,7 +590,7 @@ title="Print to PDF"
 }
 </style>
 <div class="itables">
-<table id="f0dcdbf8-4753-49fa-901e-d84038652605" class="display nowrap"style="table-layout:auto;width:auto;margin:auto;caption-side:bottom"><thead>
+<table id="1745a4e6-5c3d-44a9-b59e-21c305c6f7f3" class="display nowrap"style="table-layout:auto;width:auto;margin:auto;caption-side:bottom"><thead>
     <tr style="text-align: right;">
       <th></th>
       <th>degree</th>
@@ -620,7 +613,7 @@ title="Print to PDF"
         // Display the table
         $(document).ready(function () {
 
-            window.__itables_render('#f0dcdbf8-4753-49fa-901e-d84038652605', dt_args);
+            window.__itables_render('#1745a4e6-5c3d-44a9-b59e-21c305c6f7f3', dt_args);
         });
     }
 </script>
@@ -661,9 +654,8 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="twitter-follower-netzwerk-von-bundestagsabgeordneten-2019">
-<h1>Twitter Follower Netzwerk von Bundestagsabgeordneten 2019<a class="headerlink" href="#twitter-follower-netzwerk-von-bundestagsabgeordneten-2019" title="Permalink to this headline">#</a></h1>
+<section id="twitter-follower-netzwerk-von-bundestagsabgeordneten-2019">
+<h2>Twitter Follower Netzwerk von Bundestagsabgeordneten 2019<a class="headerlink" href="#twitter-follower-netzwerk-von-bundestagsabgeordneten-2019" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://github.com/WZBSocialScienceCenter/mdb-twitter-network/">https://github.com/WZBSocialScienceCenter/mdb-twitter-network/</a></p>
 <p>Wer sind die zentralen Personen?</p>
 <div class="cell docutils container">
@@ -716,7 +708,7 @@ unterschieden werden. Statt Eigenvector Centrality muss Katz Centrality verwende
 }
 </style>
 <div class="itables">
-<table id="966e4304-1803-4b2a-90a3-ad91ff5c2a18" class="display nowrap"style="table-layout:auto;width:auto;margin:auto;caption-side:bottom"><thead>
+<table id="3115378d-e1dc-4347-a4d6-649a08379705" class="display nowrap"style="table-layout:auto;width:auto;margin:auto;caption-side:bottom"><thead>
     <tr style="text-align: right;">
       <th></th>
       <th>in_degree</th>
@@ -739,7 +731,7 @@ unterschieden werden. Statt Eigenvector Centrality muss Katz Centrality verwende
         // Display the table
         $(document).ready(function () {
 
-            window.__itables_render('#966e4304-1803-4b2a-90a3-ad91ff5c2a18', dt_args);
+            window.__itables_render('#3115378d-e1dc-4347-a4d6-649a08379705', dt_args);
         });
     }
 </script>
@@ -753,11 +745,12 @@ unterschieden werden. Statt Eigenvector Centrality muss Katz Centrality verwende
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;networkx.classes.digraph.DiGraph at 0x1e6ff0bbd50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;networkx.classes.digraph.DiGraph at 0x1c37fb12490&gt;
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -787,6 +780,20 @@ unterschieden werden. Statt Eigenvector Centrality muss Katz Centrality verwende
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../centrality_measures/generalised_centralities.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Generalisierte Zentralitätsmaße - Eigenvector centrality &amp; Co.</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../community_detection/community_detection.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Community Detection</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: introduction/was_ist_sna.md
+  sections:
+  - file: introduction/history.md
+  - file: introduction/levels.md
+  - file: introduction/graphs.md
+- file: centrality_measures/centrality_measures.md
+  sections: 
+  - file: centrality_measures/degree_centrality.md
+  - file: centrality_measures/closeness_centrality.md
+  - file: centrality_measures/betweenness_centrality.md
+  - file: centrality_measures/centrality_comparison.ipynb
+  - file: centrality_measures/generalised_centralities.md
+- file: community_detection/community_detection.md
+  sections:
+  - file: community_detection/clique_percolation.md
+  - file: community_detection/cpm_example.ipynb

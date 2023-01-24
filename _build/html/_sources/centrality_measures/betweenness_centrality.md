@@ -28,7 +28,7 @@ Betweenness centrality $c_B(a)$ eines Knotens $a$ der Anteil an kürzesten Pfade
 auf denen $a$ vorkommt.
 
 :::{admonition} Betweenness centrality $c_B(a)$ von Akteur $a$
-$c_C(a) = \sum_{i,j \in V_{\backslash a}} \frac{\sigma_{i,j}(a)}{\sigma_{i,j}}$
+$c_B(a) = \sum_{i,j \in V_{\backslash a}} \frac{\sigma_{i,j}(a)}{\sigma_{i,j}}$
 
 $\sigma_{i,j}(a)$: Anzahl kürzester Pfade zwischen $i$ und $j$ auf denen $a$ vorkommt.
 
@@ -85,4 +85,4 @@ $\sigma_{i,j}$: Anzahl aller kürzester Pfade zwischen $i$ und $j$.
   - 0
 ```
 
-$c_B(5) = 6.5$
+$c_B(3) = 6.5$

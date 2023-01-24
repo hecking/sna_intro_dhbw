@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Clique Percolation Beispiel &#8212; Einführung in die Soziale Netzwerkanalyse</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Clique Percolation Method" href="clique_percolation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/network_example.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Einführung in die Soziale Netzwerkanalyse</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Einführung in die Soziale Netzwerkanalyse
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../introduction/was_ist_sna.html">
+   Was ist Soziale Netzwerkanalyse?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../introduction/history.html">
+     Geschichte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../introduction/levels.html">
+     Typische Fragestellungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../introduction/graphs.html">
+     Netzwerke und Graphen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../centrality_measures/centrality_measures.html">
+   Centrality Measures
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../centrality_measures/degree_centrality.html">
+     Degree centrality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../centrality_measures/closeness_centrality.html">
+     Closeness centrality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../centrality_measures/betweenness_centrality.html">
+     Betweenness centrality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../centrality_measures/centrality_comparison.html">
+     Vergleich von Zentralitätsmaßen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../centrality_measures/generalised_centralities.html">
+     Generalisierte Zentralitätsmaße - Eigenvector centrality &amp; Co.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="community_detection.html">
+   Community Detection
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="clique_percolation.html">
+     Clique Percolation Method
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Clique Percolation Beispiel
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/community_detection/cpm_example.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcommunity_detection/cpm_example.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/community_detection/cpm_example.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Clique Percolation Beispiel</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="clique-percolation-beispiel">
+<h1>Clique Percolation Beispiel<a class="headerlink" href="#clique-percolation-beispiel" title="Permalink to this headline">#</a></h1>
+<p><strong>Americal College Football Netzwerk (Girvan and M. E. J. Newman, Proc. Natl. Acad. Sci. USA 99, 7821-7826 (2002).).</strong></p>
+<p><a class="reference external" href="http://www-personal.umich.edu/~mejn/netdata/">http://www-personal.umich.edu/~mejn/netdata/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">networkx.algorithms.community</span> <span class="kn">import</span> <span class="n">k_clique_communities</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_gml</span><span class="p">(</span><span class="s1">&#39;data/football.gml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Struktur des Netzwerks</strong></p>
+<p>College Teams sind miteinander verbunden, wenn sie gegeneinander gespielt haben. Da die amerikanische College Liga in Divisionen organisiert ist, finden die meisten Spiele innerhalb der eigenen Division statt. Dadurch entsteht ein Netzwerk mit Community Struktur.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw_spring</span><span class="p">(</span>
+    <span class="n">g</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> 
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Dark2</span><span class="p">,</span> 
+    <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/cpm_example_3_0.png" src="../_images/cpm_example_3_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities</span> <span class="o">=</span> <span class="n">k_clique_communities</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">communities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[frozenset({&#39;LouisianaLafayette&#39;,
+            &#39;LouisianaMonroe&#39;,
+            &#39;LouisianaTech&#39;,
+            &#39;MiddleTennesseeState&#39;}),
+ frozenset({&#39;BallState&#39;,
+            &#39;CentralMichigan&#39;,
+            &#39;EasternMichigan&#39;,
+            &#39;NorthernIllinois&#39;,
+            &#39;Toledo&#39;,
+            &#39;WesternMichigan&#39;}),
+ frozenset({&#39;Clemson&#39;,
+            &#39;Duke&#39;,
+            &#39;FloridaState&#39;,
+            &#39;GeorgiaTech&#39;,
+            &#39;Maryland&#39;,
+            &#39;NorthCarolina&#39;,
+            &#39;NorthCarolinaState&#39;,
+            &#39;Virginia&#39;,
+            &#39;WakeForest&#39;}),
+ frozenset({&#39;Akron&#39;,
+            &#39;BowlingGreenState&#39;,
+            &#39;Buffalo&#39;,
+            &#39;CentralMichigan&#39;,
+            &#39;Kent&#39;,
+            &#39;Marshall&#39;,
+            &#39;MiamiOhio&#39;,
+            &#39;Ohio&#39;,
+            &#39;WesternMichigan&#39;}),
+ frozenset({&#39;Illinois&#39;,
+            &#39;Indiana&#39;,
+            &#39;Iowa&#39;,
+            &#39;Michigan&#39;,
+            &#39;MichiganState&#39;,
+            &#39;Minnesota&#39;,
+            &#39;Northwestern&#39;,
+            &#39;OhioState&#39;,
+            &#39;PennState&#39;,
+            &#39;Purdue&#39;,
+            &#39;Wisconsin&#39;}),
+ frozenset({&#39;AirForce&#39;,
+            &#39;BrighamYoung&#39;,
+            &#39;ColoradoState&#39;,
+            &#39;Nevada&#39;,
+            &#39;NevadaLasVegas&#39;,
+            &#39;NewMexico&#39;,
+            &#39;SanDiegoState&#39;,
+            &#39;Utah&#39;,
+            &#39;Wyoming&#39;}),
+ frozenset({&#39;FresnoState&#39;,
+            &#39;Hawaii&#39;,
+            &#39;Nevada&#39;,
+            &#39;Rice&#39;,
+            &#39;SanJoseState&#39;,
+            &#39;SouthernMethodist&#39;,
+            &#39;TexasChristian&#39;,
+            &#39;TexasElPaso&#39;,
+            &#39;Tulsa&#39;}),
+ frozenset({&#39;BostonCollege&#39;,
+            &#39;EastCarolina&#39;,
+            &#39;MiamiFlorida&#39;,
+            &#39;Navy&#39;,
+            &#39;NotreDame&#39;,
+            &#39;Pittsburgh&#39;,
+            &#39;Rutgers&#39;,
+            &#39;Syracuse&#39;,
+            &#39;Temple&#39;,
+            &#39;VirginiaTech&#39;,
+            &#39;WestVirginia&#39;}),
+ frozenset({&#39;Alabama&#39;,
+            &#39;Arkansas&#39;,
+            &#39;Auburn&#39;,
+            &#39;Florida&#39;,
+            &#39;Georgia&#39;,
+            &#39;Kentucky&#39;,
+            &#39;LouisianaState&#39;,
+            &#39;Mississippi&#39;,
+            &#39;MississippiState&#39;,
+            &#39;SouthCarolina&#39;,
+            &#39;Tennessee&#39;,
+            &#39;Vanderbilt&#39;}),
+ frozenset({&#39;Baylor&#39;,
+            &#39;Colorado&#39;,
+            &#39;Iowa&#39;,
+            &#39;IowaState&#39;,
+            &#39;Kansas&#39;,
+            &#39;KansasState&#39;,
+            &#39;Missouri&#39;,
+            &#39;Nebraska&#39;,
+            &#39;Oklahoma&#39;,
+            &#39;OklahomaState&#39;,
+            &#39;Texas&#39;,
+            &#39;TexasA&amp;M&#39;,
+            &#39;TexasTech&#39;}),
+ frozenset({&#39;Arizona&#39;,
+            &#39;ArizonaState&#39;,
+            &#39;California&#39;,
+            &#39;Idaho&#39;,
+            &#39;Oregon&#39;,
+            &#39;OregonState&#39;,
+            &#39;SouthernCalifornia&#39;,
+            &#39;Stanford&#39;,
+            &#39;UCLA&#39;,
+            &#39;Washington&#39;,
+            &#39;WashingtonState&#39;}),
+ frozenset({&#39;AlabamaBirmingham&#39;,
+            &#39;Army&#39;,
+            &#39;Cincinnati&#39;,
+            &#39;EastCarolina&#39;,
+            &#39;Houston&#39;,
+            &#39;Louisville&#39;,
+            &#39;Memphis&#39;,
+            &#39;SouthernMississippi&#39;,
+            &#39;Tulane&#39;}),
+ frozenset({&#39;ArkansasState&#39;,
+            &#39;BoiseState&#39;,
+            &#39;Idaho&#39;,
+            &#39;NewMexicoState&#39;,
+            &#39;NorthTexas&#39;,
+            &#39;UtahState&#39;})]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./community_detection"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="clique_percolation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Clique Percolation Method</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tobias Hecking<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

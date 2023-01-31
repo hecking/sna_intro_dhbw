@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Community Detection &#8212; Einführung in die Soziale Netzwerkanalyse</title>
+    <title>Modularity Optimization &#8212; Einführung in die Soziale Netzwerkanalyse</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,10 +50,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Clique Percolation Method" href="clique_percolation.html" />
-    <link rel="prev" title="Übung: Erste Schritte mit NetworkX und Zentralitäten" href="../exercise/exercise1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../introduction/was_ist_sna.html">
    Was ist Soziale Netzwerkanalyse?
@@ -142,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../centrality_measures/centrality_measures.html">
+  <a class="reference internal" href="centrality_measures.html">
    Centrality Measures
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -152,27 +152,27 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../centrality_measures/degree_centrality.html">
+    <a class="reference internal" href="degree_centrality.html">
      Degree centrality
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../centrality_measures/closeness_centrality.html">
+    <a class="reference internal" href="closeness_centrality.html">
      Closeness centrality
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../centrality_measures/betweenness_centrality.html">
+    <a class="reference internal" href="betweenness_centrality.html">
      Betweenness centrality
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../centrality_measures/centrality_comparison.html">
+    <a class="reference internal" href="centrality_comparison.html">
      Vergleich von Zentralitätsmaßen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../centrality_measures/generalised_centralities.html">
+    <a class="reference internal" href="generalised_centralities.html">
      Generalisierte Zentralitätsmaße - Eigenvector centrality &amp; Co.
     </a>
    </li>
@@ -183,42 +183,32 @@ const thebe_selector_output = ".output, .cell_output"
    Übung: Erste Schritte mit NetworkX und Zentralitäten
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../community_detection/community_detection.html">
    Community Detection
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="clique_percolation.html">
+    <a class="reference internal" href="../community_detection/clique_percolation.html">
      Clique Percolation Method
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="cpm_example.html">
+    <a class="reference internal" href="../community_detection/cpm_example.html">
      Clique Percolation Beispiel
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="modularity.html">
-     Modularity Optimization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="link_communities.html">
+    <a class="reference internal" href="../community_detection/link_communities.html">
      Link Communities
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../network_types/network_types.html">
-   Arten von Netzwerken
-  </a>
  </li>
 </ul>
 
@@ -310,7 +300,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcommunity_detection/community_detection.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcentrality_measures/modularity.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -338,7 +328,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/community_detection/community_detection.md"
+        <a href="../_sources/centrality_measures/modularity.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -375,23 +365,70 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#berechnung-von-modularity">
+   Berechnung von Modularity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-louvaine-algorithmus">
+   Der Louvaine Algorithmus
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Community Detection</h1>
+                <h1>Modularity Optimization</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#berechnung-von-modularity">
+   Berechnung von Modularity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-louvaine-algorithmus">
+   Der Louvaine Algorithmus
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -399,21 +436,40 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="community-detection">
-<h1>Community Detection<a class="headerlink" href="#community-detection" title="Permalink to this headline">#</a></h1>
-<p>Soziale Netzwerke haben typischerweise Regionen, die dichter miteinander verbunden sind als mit dem Rest des Netzwerks.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="modularity-optimization">
+<h1>Modularity Optimization<a class="headerlink" href="#modularity-optimization" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
-<li><p>Freundeskreise</p></li>
-<li><p>Arbeitsgruppen</p></li>
-<li><p>Interessensgruppen</p></li>
-<li><p>…</p></li>
+<li><p>Modularity ist ein Maß, dass angiebt wie sehr eine gegebene Menge an Communities voneinander separiert sind.</p></li>
+<li><p>Modularity bezieht sich immer auf ein partitionierendes Clustering, d.h. jeder Knoten gehört zu genau einer Community.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/karate_club.jpg"><img alt="karate" src="../_images/karate_club.jpg" style="width: 500px;" /></a>
-<p>Community Detection Algorithmen helfen z.B. dabei Personen mit gemeinsamen Interessen zu finden, Informationsflüsse zu modellieren oder Anomalien zu entdecken.</p>
-<p><strong>Perspektiven auf Communities in sozialen Netzwerken</strong></p>
-<a class="reference internal image-reference" href="../_images/community_perspectives.png"><img alt="perspectives" src="../_images/community_perspectives.png" style="width: 400px;" /></a>
-<div class="toctree-wrapper compound">
+<section id="berechnung-von-modularity">
+<h2>Berechnung von Modularity<a class="headerlink" href="#berechnung-von-modularity" title="Permalink to this headline">#</a></h2>
+<p>Für ein gegebenes Clustering <span class="math notranslate nohighlight">\(C\)</span> berechnet sich die Modularity als:</p>
+<p><strong>Anteil der Kanten die sich innerhalb von Communities befinden - Anteil Kanten, die man zufällig innerhalb einer Community erwarten würde.</strong></p>
+<p><strong>Beispiel: Ein Netzwerk mit zwei Communities</strong></p>
+<a class="reference internal image-reference" href="centrality_measures/images/modularity_example.png"><img alt="modularity_example" src="centrality_measures/images/modularity_example.png" style="width: 300px;" /></a>
+<p>Es befinden sich acht Kanten innerhalb von Communities und eine zwischen Communities.</p>
+<p><strong>Random Rewiring:</strong> Würde man die Kanten in der Mitte durchscheiden und die Enden neu verbinden, entsteht ein neues Netzwerk in dem jeder Knoten jedoch seinen ursprünglichen Degree behält.</p>
+<a class="reference internal image-reference" href="centrality_measures/images/stubs.png"><img alt="modularity_example" src="centrality_measures/images/stubs.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="centrality_measures/images/rewiring.png"><img alt="modularity_example" src="centrality_measures/images/rewiring.png" style="width: 300px;" /></a>
+<p>In diesem Beispiel befinden sich nur noch drei Kanten innerhalb von Communities und fünf dazwischen.</p>
+<p>Die Anzahl von existierenden Kanten zwischen zwei Knoten <span class="math notranslate nohighlight">\(i\)</span> und <span class="math notranslate nohighlight">\(j\)</span> ist <span class="math notranslate nohighlight">\(A_{i,j}\)</span>, wobei A die Adjazenzmatrix des Netzwerks ist.</p>
+<p>Nach einem Rewiring wie oben beschrieben würde man $\frac{d_i d_j}{2|E|} Kanten erwarten.</p>
+<div class="admonition-definition-modularity-q admonition">
+<p class="admonition-title">Definition Modularity <span class="math notranslate nohighlight">\(Q\)</span></p>
+<p><span class="math notranslate nohighlight">\(Q = \frac{1}{2|E|} \sum_{i,j \in V} [A_{i,j} - \frac{d_i d_j}{2|E|} \delta(c_i, c_j)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\delta = \begin{cases}
+    1 &amp; \text{falls} c_i = c_j (i und j sind in der selben Community) \\
+    0 &amp; \text{sonst.}
+\end{cases}
+\end{split}\]</div>
 </div>
+</section>
+<section id="der-louvaine-algorithmus">
+<h2>Der Louvaine Algorithmus<a class="headerlink" href="#der-louvaine-algorithmus" title="Permalink to this headline">#</a></h2>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -429,7 +485,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./community_detection"
+            path: "./centrality_measures"
         },
         predefinedOutput: true
     }
@@ -443,20 +499,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../exercise/exercise1.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Übung: Erste Schritte mit NetworkX und Zentralitäten</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="clique_percolation.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Clique Percolation Method</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

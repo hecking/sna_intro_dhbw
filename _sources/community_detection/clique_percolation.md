@@ -9,11 +9,11 @@
 
 ## Cliquen in Netzwerken
 
-:::{admonition} $k$-Clique
+:::{admonition} $k$ -Clique
 Eine k-clique ist ein vollständig verbundener Subgraph mit $k$ Knoten.
 :::
 
-:::{admonition} Adjazente $k$-Cliquen
+:::{admonition} Adjazente $k$ -Cliquen
 Zwei k-Cliquen sind adjazent wenn sie $k-1$ Knoten gemeinsam haben.
 
 ```{image} images/clique_adjacency.png

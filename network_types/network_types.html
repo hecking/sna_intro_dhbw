@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Community Detection &#8212; Einführung in die Soziale Netzwerkanalyse</title>
+    <title>Arten von Netzwerken &#8212; Einführung in die Soziale Netzwerkanalyse</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,10 +50,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Clique Percolation Method" href="clique_percolation.html" />
-    <link rel="prev" title="Übung: Erste Schritte mit NetworkX und Zentralitäten" href="../exercise/exercise1.html" />
+    <link rel="prev" title="Link Communities" href="../community_detection/link_communities.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -183,40 +184,40 @@ const thebe_selector_output = ".output, .cell_output"
    Übung: Erste Schritte mit NetworkX und Zentralitäten
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../community_detection/community_detection.html">
    Community Detection
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="clique_percolation.html">
+    <a class="reference internal" href="../community_detection/clique_percolation.html">
      Clique Percolation Method
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="cpm_example.html">
+    <a class="reference internal" href="../community_detection/cpm_example.html">
      Clique Percolation Beispiel
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="modularity.html">
+    <a class="reference internal" href="../community_detection/modularity.html">
      Modularity Optimization
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="link_communities.html">
+    <a class="reference internal" href="../community_detection/link_communities.html">
      Link Communities
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../network_types/network_types.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Arten von Netzwerken
   </a>
  </li>
@@ -271,6 +272,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/network_types/network_types.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -310,7 +340,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcommunity_detection/community_detection.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnetwork_types/network_types.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -338,7 +368,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/community_detection/community_detection.md"
+        <a href="../_sources/network_types/network_types.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -349,7 +379,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -375,23 +405,84 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Arten von Netzwerken
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zufallsgraphen-erdos-renyi-netzwerke">
+     Zufallsgraphen (Erdös-Renyi Netzwerke)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#skalenfreie-netzwerke">
+   Skalenfreie Netzwerke
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Community Detection</h1>
+                <h1>Arten von Netzwerken</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Arten von Netzwerken
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zufallsgraphen-erdos-renyi-netzwerke">
+     Zufallsgraphen (Erdös-Renyi Netzwerke)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#skalenfreie-netzwerke">
+   Skalenfreie Netzwerke
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -399,21 +490,82 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="community-detection">
-<h1>Community Detection<a class="headerlink" href="#community-detection" title="Permalink to this headline">#</a></h1>
-<p>Soziale Netzwerke haben typischerweise Regionen, die dichter miteinander verbunden sind als mit dem Rest des Netzwerks.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="arten-von-netzwerken">
+<h1>Arten von Netzwerken<a class="headerlink" href="#arten-von-netzwerken" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="zufallsgraphen-erdos-renyi-netzwerke">
+<h2>Zufallsgraphen (Erdös-Renyi Netzwerke)<a class="headerlink" href="#zufallsgraphen-erdos-renyi-netzwerke" title="Permalink to this headline">#</a></h2>
+<p>In einem Erdös-Renyi Netzwerk mit <span class="math notranslate nohighlight">\(n\)</span> Knoten werden je zwei Knoten mit einer Wahrscheinlichkeit <span class="math notranslate nohighlight">\(p\)</span> miteinander verbunden. Dementsprechend ist der durchschnittliche Degree der Knoten:</p>
+<p><span class="math notranslate nohighlight">\(\hat{d} = p (n - 1)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g1</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">erdos_renyi_graph</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist1</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">degree_histogram</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist1</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Degree&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/network_types_5_0.png" src="../_images/network_types_5_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="skalenfreie-netzwerke">
+<h1>Skalenfreie Netzwerke<a class="headerlink" href="#skalenfreie-netzwerke" title="Permalink to this headline">#</a></h1>
+<p><img alt="ba_graph" src="../_images/barabasi.png" /></p>
+<p>Skalenfreie Netzwerke tauchen überall auf. Diese lassen sich nicht durch eine Skala (Typischer Degree) charakterisieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g2</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">scale_free_graph</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">hist2</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">degree_histogram</span><span class="p">(</span><span class="n">g2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist2</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Degree&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/network_types_8_0.png" src="../_images/network_types_8_0.png" />
+</div>
+</div>
+<p><strong>Die Wahrscheinlichkeit von extremen Fällen, d.h. Knoten mit sehr hohem Degree (Hubs) ist in skalenfreien Netzwerken sehr viel höher</strong></p>
+<p>Die Degree-Verteilung folgt einem inversen Potenzgesetz:</p>
+<p><span class="math notranslate nohighlight">\(P(d=k) \sim k^{-\gamma}\)</span></p>
+<p>Skalenfreie Netzwerke sind sehr robust gegenüber Knotenausfällen.</p>
+<p><strong>Preferential Attachment</strong></p>
+<p>The rich get richer.</p>
 <ul class="simple">
-<li><p>Freundeskreise</p></li>
-<li><p>Arbeitsgruppen</p></li>
-<li><p>Interessensgruppen</p></li>
+<li><p>Knoten kommen nacheinander in das Netzwerk und verbinden sich mit <span class="math notranslate nohighlight">\(x\)</span> existierenden Knoten.</p></li>
+<li><p>Die Warscheinlichkeit sich mit einem Knoten zu verbinden erhöht sich, wenn dieser bereits viele Verbindungen hat.</p></li>
+</ul>
+<p><img alt="pa" src="../_images/preferential_attachment.png" /></p>
+<p><strong>Beispiele:</strong></p>
+<ul class="simple">
+<li><p>WWW</p></li>
+<li><p>Co-Autoren Netzwerke</p></li>
+<li><p>Instagram</p></li>
+<li><p>Facebook</p></li>
 <li><p>…</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/karate_club.jpg"><img alt="karate" src="../_images/karate_club.jpg" style="width: 500px;" /></a>
-<p>Community Detection Algorithmen helfen z.B. dabei Personen mit gemeinsamen Interessen zu finden, Informationsflüsse zu modellieren oder Anomalien zu entdecken.</p>
-<p><strong>Perspektiven auf Communities in sozialen Netzwerken</strong></p>
-<a class="reference internal image-reference" href="../_images/community_perspectives.png"><img alt="perspectives" src="../_images/community_perspectives.png" style="width: 400px;" /></a>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -429,7 +581,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./community_detection"
+            path: "./network_types"
         },
         predefinedOutput: true
     }
@@ -443,19 +595,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../exercise/exercise1.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../community_detection/link_communities.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Übung: Erste Schritte mit NetworkX und Zentralitäten</p>
+            <p class="prev-next-title">Link Communities</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="clique_percolation.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Clique Percolation Method</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

@@ -13,3 +13,10 @@ Soziale Netzwerke haben typischerweise Regionen, die dichter miteinander verbund
 ```
 
 Community Detection Algorithmen helfen z.B. dabei Personen mit gemeinsamen Interessen zu finden, Informationsflüsse zu modellieren oder Anomalien zu entdecken.
+
+**Perspektiven auf Communities in sozialen Netzwerken**
+
+```{image} images/community_perspectives.png
+:alt: perspectives
+:width: 400px
+```

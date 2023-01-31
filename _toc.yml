@@ -21,3 +21,6 @@ chapters:
   sections:
   - file: community_detection/clique_percolation.md
   - file: community_detection/cpm_example.ipynb
+  - file: community_detection/modularity.md
+  - file: community_detection/link_communities.md
+- file: network_types/network_types.ipynb
